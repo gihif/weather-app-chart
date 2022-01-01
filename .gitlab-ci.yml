@@ -1,12 +1,17 @@
-# You can override the included template(s) by including variable overrides
-# SAST customization: https://docs.gitlab.com/ee/user/application_security/sast/#customizing-the-sast-settings
-# Secret Detection customization: https://docs.gitlab.com/ee/user/application_security/secret_detection/#customizing-settings
-# Dependency Scanning customization: https://docs.gitlab.com/ee/user/application_security/dependency_scanning/#customizing-the-dependency-scanning-settings
-# Note that environment variables can be set in several places
-# See https://docs.gitlab.com/ee/ci/variables/#cicd-variable-precedence
-stages:
-- test
+include:
+  - project: 'medrest/devops/hiraishin'
+    ref: v0
+    file: 'pipelines/.gitlab-ci-pipeline.yml'
+  - template: Security/SAST.gitlab-ci.yml
+
+# Define Global Variables
+variables:
+  # Variable for override Project Name Identity
+  SERVICE_CODE_NAME: "${CI_PROJECT_NAME}"
+  # Pipelines Toggle Variables
+  SERVICE_TEST_ENABLED: ""
+  # Service Build toggle variable
+  BUILD_SERVICE_ENABLED: "docker"
+
 sast:
   stage: test
-include:
-- template: Security/SAST.gitlab-ci.yml
