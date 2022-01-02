@@ -73,6 +73,8 @@ This is a Helm chart for Kubernetes built to run Frontend Web weather-app-page. 
 | terminationGracePeriodSeconds | int | `90` | @param `terminationGracePeriodSeconds` is a specific time in seconds the pods will terminate |
 | resources.limits | object | `{"cpu":"150m","memory":"128Mi"}` | @param `resources.limits` The resources limits for the Weather app container <br /> Example: <br /> `limits:` <br /> `  cpu: 100m` <br /> `  memory: 128Mi` |
 | resources.requests | object | `{"cpu":"50m","memory":"80Mi"}` | @param `resources.requests` The requested resources for the Weather app container <br /> Examples: <br /> `requests:` <br /> `  cpu: 100m` <br /> `  memory: 128Mi` |
+| configMap.serverBlock | string | `"server {\n  listen 80;\n  location / {\n    root   /usr/share/nginx/html;\n    index  index.html index.htm;\n    try_files $uri $uri/ /index.html;\n  }\n  error_page   502 503 504 500  /50x.html;\n  location = /50x.html {\n    root   /usr/share/nginx/html;\n  }\n}\n"` | @param `configMap.serverBlock` Custom server block to be added to NGINX configuration |
+| configMap.envVariables | object | `{"ENVIRONMENT":"production","PROJECT_NAME":"weather-app"}` | @param `configMap.envVariables` is All required variables will set as Environment Variables to Weather App container |
 | service.type | string | `"ClusterIP"` | @param `service.type` Service type |
 | service.portName | string | `"http"` | @param `service.portName` is a name of port will exposed  |
 | service.portNumber | int | `80` | @param `service.portNumber` is a number of port will exposed |

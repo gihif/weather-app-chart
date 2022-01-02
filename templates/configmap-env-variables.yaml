@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "weather-app.fullname" . }}-env-variables
+  labels:
+    {{- include "weather-app.labels" . | nindent 4 }}
+    {{- if .Values.commonLabels }}
+      {{- include "common.tplvalues.render" (dict "value" .Values.commonLabels "context" $) | nindent 4 }}
+    {{- end }}
+  {{- if .Values.commonAnnotations }}
+  annotations: {{- include "common.tplvalues.render" (dict "value" .Values.commonAnnotations "context" $) | nindent 4 }}
+  {{- end }}
+data:
+  {{- include "common.tplvalues.render" ( dict "value" .Values.configMap.envVariables "context" $ ) | nindent 2 }}
