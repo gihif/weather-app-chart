@@ -170,7 +170,7 @@ livenessProbe:
   # -- @param `livenessProbe.successThreshold` Success threshold for livenessProbe
   successThreshold: 1
 
-# NGINX containers' readiness probe.
+# Weather app containers' readiness probe.
 # ref: https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes
 readinessProbe:
   # -- @param `readinessProbe.path` is path of readinessProbe
@@ -227,8 +227,31 @@ service:
   # -- @param `service.sessionAffinity` is session affinity of service
   sessionAffinity: None
 
+## @section Autoscaling parameters
 
-
+# Autoscaling parameters
+autoscaling:
+  # -- @param `autoscaling.enabled` Enable autoscaling for Weather app deployment
+  enabled: true
+  # -- @param `autoscaling.minReplicas` Minimum number of replicas to scale back
+  minReplicas: 5
+  # -- @param `autoscaling.maxReplicas` Maximum number of replicas to scale out
+  maxReplicas: 10
+  # -- @param `autoscaling.targetCPU` Target CPU utilization percentage
+  targetCPU: 60
+  # -- @param `autoscaling.targetMemory` Target Memory utilization percentage
+  targetMemory: 60
+  # -- @param `autoscaling.customMetrics` to add another autoscaling matrics besides CPU and Memory <br />
+  # Examples: <br />
+  # `metrics:` <br />
+  # `- type: Pods` <br />
+  # `  pods:` <br />
+  # `    metric:` <br />
+  # `      name: packets-per-second` <br />
+  # `    target:` <br />
+  # `      type: AverageValue` <br />
+  # `      averageValue: 1k`
+  customMetrics: []
 
 
 
@@ -249,12 +272,3 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
-
-autoscaling:
-  enabled: false
-  minReplicas: 1
-  maxReplicas: 100
-  targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
-
-
