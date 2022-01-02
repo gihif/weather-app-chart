@@ -1,6 +1,6 @@
 # weather-app
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.1](https://img.shields.io/badge/AppVersion-0.0.1-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.2](https://img.shields.io/badge/AppVersion-0.0.2-informational?style=flat-square)
 
 This is a Helm chart for Kubernetes built to run Frontend Web weather-app-page. Helm Chart created by Arif Ginanjar (arif17ginanjar@gmail.com). Frontend Web (weather-app-page) is Created by @mili.codes (instagram)
 
@@ -19,9 +19,54 @@ This is a Helm chart for Kubernetes built to run Frontend Web weather-app-page. 
 
 ## Requirements
 
+Kubernetes: `v1.20`
+
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.bitnami.com/bitnami | common | 1.10.x |
+
+## How to use Chart
+
+### Prerequisite
+
+* Have a cluster with nodes that have the following labels
+  ``` bash
+  app-deployment = true
+  db-deployment = false
+  monitoring-deployment = false
+  ```
+  > if you don't have nodes with those labels, you can override the default values.yaml in yours
+
+* Already installed `kubectl`
+
+* Already installed `helm`
+
+### Guide
+
+Follow these steps to be able to install this chart:
+
+* First create namespace with the following command
+```bash
+kubectl create namespace weather-app
+```
+
+* Now, lets install the charts with this following command
+```bash
+helm upgrade --install --namespace weather-app --version 0.0.2 \
+  weather-app https://gitlab.com/sayurbox-test/weather-app-chart/-/archive/0.0.2/weather-app-chart-0.0.2.tar.gz
+```
+
+* Oke, now run this following commands
+```bash
+export POD_NAME=$(kubectl get pods --namespace weather-app -l "app.kubernetes.io/name=weather-app,app.kubernetes.io/instance=weather-app" -o jsonpath="{.items[0].metadata.name}")
+export CONTAINER_PORT=$(kubectl get pod --namespace weather-app $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}")
+echo "Visit http://127.0.0.1:8080 to use your application"
+kubectl --namespace weather-app port-forward $POD_NAME 8080:$CONTAINER_PORT
+```
+
+* Then, Visit this URL http://127.0.0.1:8080
+
+* Wheather app now can be accessed
 
 ## Values
 
