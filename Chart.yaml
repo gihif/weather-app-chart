@@ -42,3 +42,11 @@ maintainers:
   - name: Arif Ginanjar
     email: arif17ginanjar@gmail.com
     url: https://linkedin.com/in/gihif
+
+# Required dependencies charts
+dependencies:
+  - name: common
+    repository: https://charts.bitnami.com/bitnami
+    tags:
+      - bitnami-common
+    version: 1.10.x

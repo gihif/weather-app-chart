@@ -20,13 +20,20 @@ imagePullSecrets: []
 # -- [Optional] @param `commonLabels` Add labels to all the deployed resources
 commonLabels: {}
 
+# -- [Optional] @param `commonAnnotations` Add annotations to all the deployed resources
+commonAnnotations: {}
+
+## @section Services Account parameters
+
+# Pods Service Account
+# ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/
 serviceAccount:
-  # Specifies whether a service account should be created
+  # -- [Optional] @param `serviceAccount.create` Specifies whether a service account should be created
   create: true
-  # Annotations to add to the service account
+  # -- [Optional] @param `serviceAccount.annotations` is Annotations to add to the service account
   annotations: {}
-  # The name of the service account to use.
-  # If not set and create is true, a name is generated using the fullname template
+  # -- [Optional] @param `serviceAccount.name` The name of the service account to use. <br />
+  # If not set and create is true, a name is generated using the `weather-app.fullname` template
   name: ""
 
 

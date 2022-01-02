@@ -21,16 +21,17 @@ This is a Helm chart for Kubernetes built to run Frontend Web weather-app-page. 
 
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
+| nameOverride | string | `""` | [Optional] @param `nameOverride` String to partially override weather-app.fullname template (will maintain the release name) <br /> default: `weather-app` |
+| fullnameOverride | string | `""` | [Optional] @param `fullnameOverride` String to fully override weather-app.fullname template |
+| imagePullSecrets | list | `[]` | [Optional] @param `imagePullSecrets` is Global Docker registry secret names as an array <br /> e.g. <br /> `imagePullSecrets:` <br /> `  - myRegistryKeySecretName` |
+| commonLabels | object | `{}` | [Optional] @param `commonLabels` Add labels to all the deployed resources |
+| serviceAccount.create | bool | `true` | [Optional] @param `serviceAccount.create` Specifies whether a service account should be created |
+| serviceAccount.annotations | object | `{}` | [Optional] @param `serviceAccount.annotations` is Annotations to add to the service account |
+| serviceAccount.name | string | `""` | [Optional] @param `serviceAccount.name` The name of the service account to use. <br /> If not set and create is true, a name is generated using the `weather-app.fullname` template |
 | replicaCount | int | `1` |  |
 | image.repository | string | `"nginx"` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.tag | string | `""` |  |
-| imagePullSecrets | list | `[]` |  |
-| nameOverride | string | `""` |  |
-| fullnameOverride | string | `""` |  |
-| serviceAccount.create | bool | `true` |  |
-| serviceAccount.annotations | object | `{}` |  |
-| serviceAccount.name | string | `""` |  |
 | podAnnotations | object | `{}` |  |
 | podSecurityContext | object | `{}` |  |
 | securityContext | object | `{}` |  |

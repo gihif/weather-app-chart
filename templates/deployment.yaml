@@ -1,9 +1,12 @@
-apiVersion: apps/v1
+apiVersion: {{ include "common.capabilities.deployment.apiVersion" . }}
 kind: Deployment
 metadata:
   name: {{ include "weather-app.fullname" . }}
   labels:
     {{- include "weather-app.labels" . | nindent 4 }}
+    {{- with $.Values.commonLabels }}
+      {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicaCount }}
