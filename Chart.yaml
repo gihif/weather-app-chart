@@ -31,9 +31,6 @@ version: 0.0.2
 # It is recommended to use it with quotes.
 appVersion: "0.0.2"
 
-# Minimum kubernetes version to supports this chart
-kubeVersion: "v1.20"
-
 # List of Repository sources
 home: https://gitlab.com/sayurbox-test/weather-app-chart
 sources:

@@ -19,8 +19,6 @@ This is a Helm chart for Kubernetes built to run Frontend Web weather-app-page. 
 
 ## Requirements
 
-Kubernetes: `v1.20`
-
 | Repository | Name | Version |
 |------------|------|---------|
 | https://charts.bitnami.com/bitnami | common | 1.10.x |
