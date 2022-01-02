@@ -1,0 +1,44 @@
+apiVersion: v2
+name: weather-app
+description: This is a Helm chart for Kubernetes built to run Frontend Web weather-app-page. Helm Chart created by Arif Ginanjar (arif17ginanjar@gmail.com). Frontend Web (weather-app-page) is Created by @mili.codes (instagram)
+icon: http://openweathermap.org/img/wn/10d@2x.png
+
+keywords:
+  - www
+  - web
+  - frontend
+  - application
+  - weather
+
+# A chart can be either an 'application' or a 'library' chart.
+#
+# Application charts are a collection of templates that can be packaged into versioned archives
+# to be deployed.
+#
+# Library charts provide useful utilities or functions for the chart developer. They're included as
+# a dependency of application charts to inject those utilities and functions into the rendering
+# pipeline. Library charts do not define any templates and therefore cannot be deployed.
+type: application
+
+# This is the chart version. This version number should be incremented each time you make changes
+# to the chart and its templates, including the app version.
+# Versions are expected to follow Semantic Versioning (https://semver.org/)
+version: 0.0.1
+
+# This is the version number of the application being deployed. This version number should be
+# incremented each time you make changes to the application. Versions are not expected to
+# follow Semantic Versioning. They should reflect the version the application is using.
+# It is recommended to use it with quotes.
+appVersion: "0.0.1"
+
+# List of Repository sources
+home: https://gitlab.com/sayurbox-test/weather-app-chart
+sources:
+  - https://gitlab.com/sayurbox-test/weather-app-chart
+  - https://github.com/milicodes/weather-app-page
+
+# Maintainer information
+maintainers:
+  - name: Arif Ginanjar
+    email: arif17ginanjar@gmail.com
+    url: https://linkedin.com/in/gihif
