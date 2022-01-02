@@ -252,3 +252,15 @@ autoscaling:
   # `      type: AverageValue` <br />
   # `      averageValue: 1k`
   customMetrics: []
+
+## @section Pod Disruption Budget parameters
+
+# Pod Disruption Budget configuration
+# ref: https://kubernetes.io/docs/tasks/run-application/configure-pdb/
+pdb:
+  # -- @param `pdb.create` Created a PodDisruptionBudget
+  create: true
+  # -- @param `pdb.minAvailable` Min number of pods that must still be available after the eviction
+  minAvailable: 2
+  # -- @param `pdb.maxUnavailable` Max number of pods that can be unavailable after the eviction
+  maxUnavailable: 0
