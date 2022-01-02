@@ -54,7 +54,7 @@ This is a Helm chart for Kubernetes built to run Frontend Web weather-app-page. 
 | podSecurityContext.enabled | bool | `false` | @param `podSecurityContext.enabled` Enabled Weather app pods' Security Context |
 | podSecurityContext.fsGroup | int | `1001` | @param `podSecurityContext.fsGroup` Set Weather app pod's Security Context fsGroup |
 | podSecurityContext.sysctls | list | `[]` | @param `podSecurityContext.sysctls` sysctl settings of the Weather App pods <br /> sysctl settings <br /> Example: <br /> `sysctls:` <br /> `- name: net.core.somaxconn` <br /> `  value: "10000"` <br /> |
-| securityContext | object | `{}` | @param securityContext Set Weather app container's Security Context Example: <br /> `securityContext:` <br /> ` capabilities:` <br /> `   drop:` <br /> `   - ALL` <br /> ` readOnlyRootFilesystem: true` <br /> ` runAsNonRoot: true` <br /> ` runAsUser: 1000` |
+| securityContext | object | `{}` | @param securityContext Set Weather app container's Security Context Example: <br /> `securityContext:` <br /> `  capabilities:` <br /> `    drop:` <br /> `    - ALL` <br /> `  readOnlyRootFilesystem: true` <br /> `  runAsNonRoot: true` <br /> `  runAsUser: 1000` |
 | containerPorts.name | string | `"http"` | @param `containerPorts.name` is a port name of Weather app container |
 | containerPorts.number | int | `80` | @param `containerPorts.number` is a port number of Weather app container |
 | containerPorts.protocol | string | `"TCP"` | @param `containerPorts.protocol` is a port number of Weather app container |

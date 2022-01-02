@@ -137,12 +137,12 @@ podSecurityContext:
 # -- @param securityContext Set Weather app container's Security Context
 # Example: <br />
 # `securityContext:` <br />
-# ` capabilities:` <br />
-# `   drop:` <br />
-# `   - ALL` <br />
-# ` readOnlyRootFilesystem: true` <br />
-# ` runAsNonRoot: true` <br />
-# ` runAsUser: 1000`
+# `  capabilities:` <br />
+# `    drop:` <br />
+# `    - ALL` <br />
+# `  readOnlyRootFilesystem: true` <br />
+# `  runAsNonRoot: true` <br />
+# `  runAsUser: 1000`
 securityContext: {}
 
 # Configures the ports Weather app listens on
