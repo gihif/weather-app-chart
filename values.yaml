@@ -213,6 +213,28 @@ resources:
     cpu: 50m
     memory: 80Mi
 
+## @section ConfigMap parameters
+
+configMap:
+  # -- @param `configMap.serverBlock` Custom server block to be added to NGINX configuration
+  serverBlock: |
+    server {
+      listen 80;
+      location / {
+        root   /usr/share/nginx/html;
+        index  index.html index.htm;
+        try_files $uri $uri/ /index.html;
+      }
+      error_page   502 503 504 500  /50x.html;
+      location = /50x.html {
+        root   /usr/share/nginx/html;
+      }
+    }
+  # -- @param `configMap.envVariables` is All required variables will set as Environment Variables to Weather App container
+  envVariables:
+    PROJECT_NAME: weather-app
+    ENVIRONMENT: production
+
 ## @section Services parameters
 
 service:
