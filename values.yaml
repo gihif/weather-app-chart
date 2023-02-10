@@ -93,23 +93,17 @@ nodeAffinityPreset:
 # -- @param `affinity` Affinity for pod assignment <br />
 # ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#affinity-and-anti-affinity <br />
 # Note: podAffinityPreset, podAntiAffinityPreset, and  nodeAffinityPreset will be ignored when it's set
-affinity:
-  nodeAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-      nodeSelectorTerms:
-        - matchExpressions:
-            - key: app-deployment
-              operator: In
-              values:
-                - "true"
-            - key: db-deployment
-              operator: In
-              values:
-                - "false"
-            - key: monitoring-deployment
-              operator: In
-              values:
-                - "false"
+# Example: <br />
+# `affinity:` <br />
+# `  nodeAffinity:` <br />
+# `    requiredDuringSchedulingIgnoredDuringExecution:` <br />
+# `      nodeSelectorTerms:` <br />
+# `        - matchExpressions:` <br />
+# `            - key: app-deployment` <br />
+# `              operator: In` <br />
+# `              values:` <br />
+# `                - "true"` <br />
+affinity: {}
 
 # -- @param `nodeSelector` Node labels for pod assignment. Evaluated as a template. <br />
 # Ref: https://kubernetes.io/docs/user-guide/node-selection/
