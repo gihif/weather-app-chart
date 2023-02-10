@@ -1,6 +1,6 @@
 # weather-app
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.2](https://img.shields.io/badge/AppVersion-0.0.2-informational?style=flat-square)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 0.0.3](https://img.shields.io/badge/AppVersion-0.0.3-informational?style=flat-square)
 
 This is a Helm chart for Kubernetes built to run Frontend Web weather-app-page. Helm Chart created by Arif Ginanjar (arif17ginanjar@gmail.com). Frontend Web (weather-app-page) is Created by @mili.codes (instagram)
 
@@ -50,8 +50,8 @@ kubectl create namespace weather-app
 
 * Now, lets install the charts with this following command
 ```bash
-helm upgrade --install --namespace weather-app --version 0.0.2 \
-  weather-app https://gitlab.com/sayurbox-test/weather-app-chart/-/archive/0.0.2/weather-app-chart-0.0.2.tar.gz
+helm upgrade --install --namespace weather-app --version 0.0.3 \
+  weather-app https://gitlab.com/sayurbox-test/weather-app-chart/-/archive/0.0.3/weather-app-chart-0.0.3.tar.gz
 ```
 
 * Oke, now run this following commands
